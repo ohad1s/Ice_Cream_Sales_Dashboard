@@ -1,6 +1,12 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const redis = require('redis');
+const fs = require("fs");
+const { parse } = require("csv-parse");
+// const kafka = require("node-rdkafka");
+
+const kafka = require('./producer/index.js');
+
 
 const PORT = process.env.PORT || 5000;
 const REEDIS_PORT = process.env.PORT || 6379;
@@ -29,18 +35,16 @@ async function getRepos(req, res, next) {
         const repos = data.public_repos;
 
         // set data to REDIS:
-        // client.setex(username,repos);
         client.set(username,repos, function (error, response) {
             if (error) return console.error(error);
             console.log(response);
         });
-// --------------------------------------
-        client.set("key", "something", function (error, response) {
-            if (error) return console.error(error);
-            console.log(response);
-        });
-       // ========================================
-
+// // --------------------------------------
+//         client.set("key", "something", function (error, response) {
+//             if (error) return console.error(error);
+//             console.log(response);
+//         });
+//        // ========================================
 
         res.send(setResponse(username,repos));
 
@@ -51,7 +55,47 @@ async function getRepos(req, res, next) {
 
 }
 
+async function getCities(req, res, next) {
+    try {
+        console.log('cities...');
+
+        fs.createReadStream("./public/cities.csv")
+            .pipe(parse({ delimiter: ",", from_line: 3 }))
+            .on("data", function (row) {
+                console.log(row);
+            })
+            .on("end", function () {
+                console.log("finished");
+            })
+            .on("error", function (error) {
+                console.log(error.message);
+            });
+
+
+
+        // set data to REDIS:
+        // client.set(username,repos, function (error, response) {
+        //     if (error) return console.error(error);
+        //     console.log(response);
+        // });
+
+
+        res.send("מלאי בכל הסניפים אופס ל200 קג לסניף!");
+
+    } catch (err) {
+        console.error();
+        res.status(500);
+    }
+
+}
+
+
+
 app.get('/repos/:username', getRepos);
+app.get('/cities', getCities);
+app.get('/', (req, res) => res.send("<a href='/send'>Send</a> <br/><a href=''>View</a>"));
+app.get('/send', (req, res) => {kafka.publish("whats up");res.send('message was sent')});
+
 
 app.listen(PORT, function () {
     console.log(`app listening on port ${PORT}!`)
