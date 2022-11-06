@@ -1,0 +1,158 @@
+// Variable overrides first
+$primary: rgb(255, 195, 105);
+$enable-shadows: true;
+$prefix: "mo-";
+
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+//Font
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+
+:root{
+--mo-body-font-family: 'Amatic SC', 'cursive';
+font-style: normal;
+font-weight: 100;
+  --primaryColor: #f09d51;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+}
+
+.body html{
+ height: 100%;
+}
+
+// navbar
+$navbar-padding-y:                  $spacer * .5;
+$navbar-padding-x:                  null;
+
+$navbar-nav-link-padding-x:         .5rem;
+
+$navbar-brand-font-size:            $font-size-lg;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+$nav-link-height:                   $font-size-base * $line-height-base + $nav-link-padding-y * 2;
+$navbar-brand-height:               $navbar-brand-font-size * $line-height-base;
+$navbar-brand-padding-y:            ($nav-link-height - $navbar-brand-height) * .5;
+$navbar-brand-margin-end:           1rem;
+
+$navbar-toggler-padding-y:          .25rem;
+$navbar-toggler-padding-x:          .75rem;
+$navbar-toggler-font-size:          $font-size-lg;
+$navbar-toggler-border-radius:      $btn-border-radius;
+$navbar-toggler-focus-width:        $btn-focus-width;
+$navbar-toggler-transition:         box-shadow .15s ease-in-out;
+//end navbar
+
+//branch
+
+//.branch{
+// padding: 1rem 0;
+// background-image: url(../pic/background2.jpg);
+//}
+
+////branches
+//.products {
+//  padding: 1rem 0;
+//  background-image: url(../pic/background.jpg);
+//}
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  color: white;
+}
+.products-center {
+ direction: rtl;
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 2fr));
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+  justify-content: center;
+}
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+.bag-btn {
+  position: absolute;
+  top: 70%;
+  right: 0;
+  background: var(--primaryColor);
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: var(--mainSpacing);
+  font-weight: bold;
+  transition: var(--mainTransition);
+  transform: translateX(101%);
+  cursor: pointer;
+}
+.bag-btn:hover {
+  color: var(--mainWhite);
+}
+.img-container:hover .bag-btn {
+  transform: translateX(0);
+}
+.product-img {
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  max-height: 400px;
+  transition: var(--mainTransition);
+}
+.img-container:hover .product-img {
+  opacity: 0.8;
+}
+
+.product h3 {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+  color: white;
+}
+
+//btn
+
+.btn-1 {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+
+}
+//.btn-1:hover:hover {
+//    color: #fff;
+//    background-image: url(../pic/titleBorder.png);
+//    background-color: transparent;
+//    border-color: transparent; /*set the color you want here*/
+//    background-repeat: no-repeat;
+//    transition: all 0.7s ease-in-out;
+//    background-size: 60px;
+//    background-position: center;
+//}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 100px;
+}
+
+//.shirazi{
+//
+//
+//
+//}
+

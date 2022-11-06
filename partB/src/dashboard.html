@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../scss/custom.scss">
+    <script type="module" src="index.js"></script>
+</head>
+
+
+<body style="background-image: url('../scss/3824e07925ccb4d7ca61d58df0fe9c72.jpg');background-repeat: no-repeat;  background-attachment: fixed;
+  background-size: cover;">
+<div class="container-lg-fluid">
+    <div class="row" style="direction: rtl; margin: 0;">
+        <div class="col-3">
+            <div class="container-lg-fluid" style="direction: rtl;">
+                <nav class="navbar navbar-expand-md flex-md-column" style="padding-top: 40px;">
+                    <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+                        <ul class="navbar-nav w-10 d-flex flex-md-column" style="padding: 0; padding-top: 65px;">
+                            <li>
+                                <a class="nav-link" aria-current="page" id="43218"><h4></h4></a>
+                            </li>
+                            <li>
+                                <a class="nav-link" aria-current="page" id="43219"><h4></h4></a>
+                            </li>
+                            <li>
+                                <a class="nav-link" aria-current="page" id="mlai1"><h4>מלאי</h4></a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="" id="stores"><h4>חנויות</h4></a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="" id="amen"><h4>אמן מודל</h4></a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="nav-link" href="" id="refresh"><h4><b>רענן נתונים</b></h4></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="container" id="first" name="first-click">
+                <div class="row" style="margin-top: 50px">
+                    <div class="col-6" style="text-align: center">
+                        <div class="row" style="margin-top: 40px"></div>
+                        <h1 id="season_click">עונה השנה היא:</h1>
+                        <h4 id="season"></h4>
+                    </div>
+                    <div class="col-6" style="text-align: center">
+                        <div class="row" style="margin-top: 40px"></div>
+                        <h1 id="holiday_click">האם חג השבוע?</h1>
+                        <h4 id="holiday"></h4>
+                    </div>
+                    <div class="col-12" style="text-align: center">
+                        <div class="row" style="margin-top: 40px"></div>
+                        <h1 id="mlai"> מלאים כללים בכל הרשת:</h1>
+                        <div class="row" style="margin-top: 60px"></div>
+                    </div>
+                    <div>
+                        <div class="col-12">
+                            <div class="col-12" style="text-align: center">
+                                <script
+                                        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+                                </script>
+                                <canvas id="graph1" style="width:100%;max-width:800px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--            <div class="shirazi">-->
+            <!--                עיצוב מקובץ css-->
+            <!--            </div>-->
+            <div class="container" id="second" name="second-click" hidden>
+                <div class="row" style="margin-top: 120px">
+                    <div class="col-6" style="text-align: center; align-items: center">
+                        <div class="input-group" style="width: 50%;">
+                            <select class="form-select" id="kind" style="direction: rtl;">
+                                <option selected>בחר טעם</option>
+                                <option value="תיק" id="choice1" name="choice1">שוקולד</option>
+                                <option value="תיק" id="choice2" name="choice2">וניל</option>
+                                <option value="תיק" id="choice3" name="choice3">לימון</option>
+                                <option value="תיק" id="choice4" name="choice4">תות</option>
+                                <option value="תיק" id="choice5" name="choice5">חלבה</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6" style="text-align: center; align-items: center">
+                        <div class="input-group" style="width: 50%;">
+                            <select class="form-select" id="kind2" style="direction: rtl;">
+                                <script>
+                                    var options_list = "<option value='0'>בחר חנות</option>";
+                                    var cities = [
+                                        'אבו גוש', 'אבו סנאן', 'אבו קורינאת (יישוב)',
+                                        'אבו תלול', 'אבטין', 'אבטליון',
+                                        'אביאל', 'אביבים', 'אביגדור',
+                                        'אביחיל', 'אביטל', 'אביעזר',
+                                        'אבירים', 'אבן יהודה', 'אבן מנחם',
+                                        'אבן ספיר', 'אבן שמואל', 'אבני איתן',
+                                        'אבני חפץ', 'אבנת', 'אבשלום',
+                                        'אדורה', 'אדירים', 'אדמית',
+                                        'אדרת', 'אודים', 'אודם',
+                                        'אוהד', 'אום אל-פחם', 'אום אל-קוטוף',
+                                        'אום בטין', 'אומן', 'אומץ',
+                                        'אופקים', 'אור הגנוז', 'אור הנר',
+                                        'אור יהודה', 'אור עקיבא', 'אורה',
+                                        'אורות', 'אורטל', 'אורים',
+                                        'אורנים', 'אורנית', 'אושה',
+                                        'אזור', 'אחווה', 'אחוזם',
+                                        'אחוזת ברק', 'אחיהוד', 'אחיטוב',
+                                        'אחיסמך', 'אחיעזר', 'איבים',
+                                        'אייל', 'איילת השחר', 'אילון',
+                                        'אילות', 'אילנייה', 'אילת',
+                                        'אירוס', 'איתמר', 'איתן',
+                                        'איתנים', 'אכסאל', 'אל -עזי',
+                                        'אל -עריאן', 'אל -רום', 'אל סייד',
+                                        'אלומה', 'אלומות', 'אלון הגליל',
+                                        'אלון מורה', 'אלון שבות', 'אלוני אבא',
+                                        'אלוני הבשן', 'אלוני יצחק', 'אלונים',
+                                        'אלי-עד', 'אליאב', 'אליכין',
+                                        'אליפז', 'אליפלט', 'אליקים',
+                                        'אלישיב', 'אלישמע', 'אלמגור',
+                                        'אלמוג', 'אלעד', 'אלעזר',
+                                        'אלפי מנשה', 'אלקוש', 'אלקנה',
+                                        'אמונים', 'אמירים'
+                                    ];
+                                    for (var i = 0; i < cities.length; i++) {
+                                        options_list += "<option value='0'>" + cities[i] + "</option>"
+                                    }
+                                    document.getElementById("kind2").innerHTML = options_list;
+                                </script>
+                                <!--                                <option value="0">בחר חנות</option>-->
+                                <!--                                <option value="תיק" id="choice12" name="choice1">תיק</option>-->
+                                <!--                                <option value="תיק" id="choice22" name="choice2">תיק</option>-->
+                                <!--                                <option value="תיק" id="choice32" name="choice3">תיק</option>-->
+                                <!--                                <option value="תיק" id="choice42" name="choice4">תיק</option>-->
+                                <!--                                <option value="תיק" id="choice52" name="choice5">תיק</option>-->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-4">
+                    </div>
+                    <div class="col-1" style="">
+                        <button type="button" class="btn btn-primary" id="enter"
+                                style="width: 100%;"> בחר
+                        </button>
+                    </div>
+                    <div class="row" style="margin-top: 30px"></div>
+                    <div>
+                        <script
+                                src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+                        </script>
+                        <canvas id="graph21" style="width:100%;max-width:600px"></canvas>
+                    </div>
+                    <div class="row" style="margin-top: 30px"></div>
+                    <div>
+                        <script
+                                src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+                        </script>
+                        <canvas id="graph212" style="width:100%;max-width:600px"></canvas>
+                    </div>
+                    <div class="col-6">
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="container" id="third" name="third-click" hidden>
+                <div class="row" style="margin-top: 50px">
+                    <div class="row" style="margin-top: 50px">
+                        <div class="col-11" style="text-align: center">
+                            <h1 id="mlearning"> הכנת נתונים ושליחתם לשירות למידה:</h1>
+                            <h4 id="ml"></h4>
+                        </div>
+                    </div>
+                    <!--                    <div class="row" style="margin-top: 20px;">-->
+                    <div class="col-10">
+                    </div>
+                    <div class="col-3">
+                    </div>
+                    <div class="col-5" style="">
+                        <button type="button" class="btn btn-primary" id="enter3" style="width: 100%;">אמן מודל
+                        </button>
+                    </div>
+                    <!--                        <div class="col-6">-->
+                    <!--                        </div>-->
+
+                    <!--                    </div>-->
+                    <div class="row" style="margin-top: 50px">
+                    </div>
+                    <div class="col-11" style="text-align: center">
+                        <h1 id="mldata"> בדיקת חיזוי צריכת טעם גלידה בסניף:</h1>
+                    </div>
+                    <div class="row" style="margin-top: 30px">
+                    </div>
+                    <div class="col-11">
+                    </div>
+                    <div class="col-4">
+                    </div>
+                    <div class="col-8">
+                        <div class="col-8" style="text-align: center">
+                            <div class="input-group" style="width: 50%;text-align: center">
+                                <select class="form-select" id="kind1" style="direction: rtl;text-align: center">
+                                    <option selected>בחר טעם</option>
+                                    <option value="תיק" id="choice123" name="choice1">שוקולד</option>
+                                    <option value="תיק" id="choice23" name="choice2">וניל</option>
+                                    <option value="תיק" id="choice34" name="choice3">לימון</option>
+                                    <option value="תיק" id="choice45" name="choice4">תות</option>
+                                    <option value="תיק" id="choice55" name="choice5">חלבה</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 30px">
+                        </div>
+                        <div class="col-8" style="text-align: center">
+                            <div class="input-group" style="width: 50%;text-align: center">
+                                <select class="form-select" id="kind23" style="direction: rtl;text-align: center">
+                                    <script>
+                                        var options_list = "<option value='0'>בחר חנות</option>";
+                                        var cities = [
+                                            'אבו גוש', 'אבו סנאן', 'אבו קורינאת (יישוב)',
+                                            'אבו תלול', 'אבטין', 'אבטליון',
+                                            'אביאל', 'אביבים', 'אביגדור',
+                                            'אביחיל', 'אביטל', 'אביעזר',
+                                            'אבירים', 'אבן יהודה', 'אבן מנחם',
+                                            'אבן ספיר', 'אבן שמואל', 'אבני איתן',
+                                            'אבני חפץ', 'אבנת', 'אבשלום',
+                                            'אדורה', 'אדירים', 'אדמית',
+                                            'אדרת', 'אודים', 'אודם',
+                                            'אוהד', 'אום אל-פחם', 'אום אל-קוטוף',
+                                            'אום בטין', 'אומן', 'אומץ',
+                                            'אופקים', 'אור הגנוז', 'אור הנר',
+                                            'אור יהודה', 'אור עקיבא', 'אורה',
+                                            'אורות', 'אורטל', 'אורים',
+                                            'אורנים', 'אורנית', 'אושה',
+                                            'אזור', 'אחווה', 'אחוזם',
+                                            'אחוזת ברק', 'אחיהוד', 'אחיטוב',
+                                            'אחיסמך', 'אחיעזר', 'איבים',
+                                            'אייל', 'איילת השחר', 'אילון',
+                                            'אילות', 'אילנייה', 'אילת',
+                                            'אירוס', 'איתמר', 'איתן',
+                                            'איתנים', 'אכסאל', 'אל -עזי',
+                                            'אל -עריאן', 'אל -רום', 'אל סייד',
+                                            'אלומה', 'אלומות', 'אלון הגליל',
+                                            'אלון מורה', 'אלון שבות', 'אלוני אבא',
+                                            'אלוני הבשן', 'אלוני יצחק', 'אלונים',
+                                            'אלי-עד', 'אליאב', 'אליכין',
+                                            'אליפז', 'אליפלט', 'אליקים',
+                                            'אלישיב', 'אלישמע', 'אלמגור',
+                                            'אלמוג', 'אלעד', 'אלעזר',
+                                            'אלפי מנשה', 'אלקוש', 'אלקנה',
+                                            'אמונים', 'אמירים'
+                                        ];
+                                        for (var i = 0; i < cities.length; i++) {
+                                            options_list += "<option value='0'>" + cities[i] + "</option>"
+                                        }
+                                        document.getElementById("kind23").innerHTML = options_list;
+                                    </script>
+                                    <!--                                    <option selected>בחר סניף</option>-->
+<!--                                    <option value="תיק" id="choice14" name="choice1">1</option>-->
+                                    <!--                                    <option value="תיק" id="choice24" name="choice2">2</option>-->
+                                    <!--                                    <option value="תיק" id="choice345" name="choice3">3</option>-->
+                                    <!--                                    <option value="תיק" id="choice44" name="choice4">4</option>-->
+                                    <!--                                    <option value="תיק" id="choice54" name="choice5">5</option>-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 30px">
+                        </div>
+                        <div class="col-12">
+                            <form id="date_for_model">
+                                <label for="date">בחר תאריך:</label>
+                                <input type="date" id="date" name="birthday">
+                            </form>
+                        </div>
+                        <div class="row" style="margin-top: 30px">
+                        </div>
+                        <div class="col-4" style="text-align: center">
+                            <button type="button" class="btn btn-primary" id="enter4" style="width: 100%;">קבל נתונים
+                            </button>
+                        </div>
+                        <div class="col-4" style="text-align: center">
+                            <p1 id="p_data"></p1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="container-lg-fluid" style="direction: rtl;">
+                <nav class="navbar navbar-expand-md flex-md-column" style="padding-top: 40px;">
+                    <div class="collapse navbar-collapse w-100" id="navbarSupportedContent2">
+                        <ul class="navbar-nav w-10 d-flex flex-md-column" style="padding: 0; padding-top: 65px;">
+                            <li>
+                                <a class="nav-link" href=""><h4> סך הכמות בכל הרשת לפי ק''ג</h4><h4 id="tot"></h4></a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="nav-link" href=""><h4>לימון</h4><h4 id="lemon"></h4></a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="nav-link" href=""><h4>שוקולד</h4><h4 id="choco"></h4></a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="nav-link" href=""><h4>וניל</h4><h4 id="vanil"></h4></a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="nav-link" href=""><h4 id="halva2">חלבה</h4><h4 id="halva"></h4></a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="nav-link" href=""><h4>תות</h4><h4 id="strw"></h4></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+</body>
+</html>
