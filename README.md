@@ -12,3 +12,7 @@ The project is built from 3 sub-systems:
 - Make a prediction about future sales using BigML.
 
 All the sub-systems communicate using Kafka.
+
+
+![image](https://user-images.githubusercontent.com/92723105/202892197-2cf3e1f1-4e87-47e9-b6ce-4dc22923bac9.png)
+
